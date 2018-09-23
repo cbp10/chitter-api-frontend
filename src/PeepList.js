@@ -1,5 +1,4 @@
 function PeepList() {
-  this.peeps = []
 }
 
 PeepList.prototype.fetchAllPeeps = function() {
@@ -11,11 +10,9 @@ PeepList.prototype.fetchAllPeeps = function() {
   //   console.log(JSON.stringify(myJson));
   // })
   .then(function(data) {
-    this.peeps = data
-    return data
+    new PeepListView.getHTML(data)
+  })
+  .catch(function(error) {
+    console.log(error)
   });
-}
-
-PeepList.prototype.getAllPeeps = function() {
-  return this.peeps
 }
