@@ -10,8 +10,9 @@ PeepList.prototype.fetchAllPeeps = function() {
   //   console.log(JSON.stringify(myJson));
   // })
   .then(function(data) {
-    new PeepListView().getHTML(data)
+    document.getElementById("peeps").innerHTML = new PeepListView().getHTML(data)
     // console.log(this.peeps)
+    // console.log(data)
     return data
   
   })

@@ -1,18 +1,13 @@
-function PeepListView() {
-}
+function PeepListView() {}
 
-PeepListView.prototype.getHTML = function(peepsArray) {
+  PeepListView.prototype.getHTML = function(peepsArray = new PeepList().fetchAllPeeps()) {
+    var string = "<ul>"
 
+    if(peepsArray.length > 0) {
+      peepsArray.forEach(function(peep) { 
+      string += `<li><em>${peep.user.handle}</em><br>${peep.body}</li>`
+      })
+    }
 
-
-  var string = "<ul>"
-
-  
-  peepsArray.forEach(function(peep) { 
-    string += `<li><em>${peep.user.handle}</em><br>${peep.body}</li>`
-    })
-  
-
-
-  return string + "</ul>"
+    return string + "</ul>"
 }
